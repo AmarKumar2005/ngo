@@ -1,3 +1,4 @@
+// Slider functionality
 let slides = document.querySelectorAll('.slide');
 let index = 0;
 
@@ -16,9 +17,20 @@ function nextSlide() {
 setInterval(nextSlide, 5000); // Change image every 5 seconds
 showSlide(index);
 
-const hamburger = document.getElementById('hamburger');
-const navbar = document.getElementById('navbar');
+// Hamburger menu toggle
+const toggle = document.getElementById("menu-toggle");
+const navbar = document.getElementById("navbar");
 
-hamburger.addEventListener('click', () => {
-  navbar.classList.toggle('active');
+toggle.addEventListener("click", () => {
+  const isOpen = navbar.classList.contains("active");
+
+  if (isOpen) {
+    // Close menu
+    navbar.classList.remove("active");
+    toggle.classList.remove("open");
+  } else {
+    // Open menu from right
+    navbar.classList.add("active");
+    toggle.classList.add("open");
+  }
 });

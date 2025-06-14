@@ -2,32 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: inherit; */
-  /* font-style: inherit; */
-  /* font-weight: inherit; */
 }
 
 body {
   background-color: #fff;
   color: #333;
-  padding: 80px 0px 0px 0px;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: rgb(248, 226, 226);
   padding: 12px 40px;
   border-bottom: 1px solid #ccc;
   flex-wrap: wrap;
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 0; */
-  /* width: 100%; */
-  /* z-index: 999; Keeps it above other content */
-  /* background-color: white; */
-  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
 }
 
 .logo {
@@ -35,6 +24,7 @@ header {
   font-size: 1.5em;
   font-weight: bold;
 }
+
 .header-left {
   display: flex;
   align-items: center;
@@ -58,9 +48,87 @@ header {
   font-weight: bold;
 }
 
+/* Hide close icon by default */
+.close-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Toggle menu icon visibility */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: inline;
+  }
+
+  .close-icon {
+    display: none;
+  }
+
+  .menu-toggle.open .hamburger {
+    display: none;
+  }
+
+  .menu-toggle.open .close-icon {
+    display: inline;
+  }
+}
+
+
 .logo-text .tagline {
   font-size: 1em;
   color: #6c757d;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-text .main-title {
+    font-size: 1.2em;
+    /* smaller than original 1.5em */
+  }
+
+  .logo-text .tagline {
+    font-size: 0.9em;
+    /* slightly smaller */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo-text .main-title {
+    font-size: 1em;
+  }
+
+  .logo-text .tagline {
+    font-size: 0.8em;
+  }
 }
 
 .logo small {
@@ -84,7 +152,7 @@ nav a {
 
 .slide {
   width: 100%;
-  height: 450px;
+  height: 380px;
   object-fit: cover;
   position: absolute;
   opacity: 0;
@@ -97,18 +165,12 @@ nav a {
 }
 
 .content {
-  /* padding: 30px 30px 1.5em 30px; */
   max-width: 1500px;
   margin: auto;
 }
 
-.content section {
+.content section .content h2{
   margin-bottom: 40px;
-}
-
-.content h2 {
-  margin-bottom: 40px;
-  /* color: #000000;font-weight: bold; */
 }
 
 .content ul {
@@ -189,7 +251,8 @@ footer {
 
 .focus-points .icon {
   font-size: 1.8rem;
-  color: #f97316; /* Orange highlight */
+  color: #f97316;
+  /* Orange highlight */
 }
 
 .focus-points strong {
@@ -597,9 +660,10 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+
   .slider,
   .slide {
-    height: 300px;
+    height: 130px;
   }
 
   .footer-top h2 {
@@ -627,9 +691,10 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
+
   .slider,
   .slide {
-    height: 200px;
+    height: 120px;
   }
 
   .header-left,
@@ -641,6 +706,9 @@ footer {
   .footer-contact {
     flex-direction: column;
     gap: 20px;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
   }
 
   .donate-btn {
@@ -685,8 +753,8 @@ footer {
     position: absolute;
     top: 100%;
     left: 0;
-    padding: 10px 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px 0px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .navbar.active {
